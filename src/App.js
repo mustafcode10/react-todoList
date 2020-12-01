@@ -16,7 +16,7 @@ export class App extends Component {
       {
         id: 2,
         title: "its dinner time",
-        completed: true
+        completed: false
       },
       {
         id: 3,
@@ -42,12 +42,27 @@ export class App extends Component {
     })
 
   }
+ //Delete Item.
+ deleteMark =(id)=>{
+  this.setState({todos: [...this.state.todos.filter((todo)=>
+    todo.id !== id
+  
+  
+  )]})
+
+ }
+ 
+
 
   render() {
-    console.log("State",this.state.todos)
+   // console.log("State",this.state.todos)
     return (
       <div>
-        <Todos listItem ={this.state.todos} markComplete ={this.markComplete} />
+        <Todos 
+        listItem ={this.state.todos} 
+        markComplete ={this.markComplete}
+        deleteId ={this.deleteMark}
+         />
       </div>
     )
   }
