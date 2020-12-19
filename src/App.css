@@ -7,5 +7,21 @@ body
 {
     font-family: Arial, Helvetica, sans-serif;
     line-height: 1.4;
-    background: rgb(41, 134, 165);
+    background: rgb(157, 195, 209);
+}
+
+.container {
+    background: rgb(118, 119, 117);
+    padding:0 1rem;
+}
+.btn{
+    display: inline-block;
+    background: deepskyblue;
+    color: ghostwhite;
+    border: none;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+.btn:hover{
+ background:darkblue
 }

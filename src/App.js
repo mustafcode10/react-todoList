@@ -1,6 +1,7 @@
 import Header from './components/layout/Header'
 import './App.css'
 import Todos from './components/Todos'
+import AddTodo from './components/AddTodo'
 
 
 import React, { Component } from 'react'
@@ -60,12 +61,17 @@ export class App extends Component {
     // console.log("State",this.state.todos)
     return (
       <div>
-         <Header />
+        <div className="container">
+        <Header />
+         <AddTodo />
         <Todos
           listItem={this.state.todos}
           markComplete={this.markComplete}
           deleteId={this.deleteMark}
         />
+
+        </div>
+
       </div>
     )
   }
