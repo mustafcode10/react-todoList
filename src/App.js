@@ -1,4 +1,4 @@
-
+import Header from './components/layout/Header'
 import './App.css'
 import Todos from './components/Todos'
 
@@ -26,12 +26,11 @@ export class App extends Component {
     ]
   }
   // Toggle Complete
-  markComplete =(id)=>{
+  markComplete = (id) => {
     console.log(id)
     this.setState({
-      todos: this.state.todos.map((todo)=>
-      {
-        if(todo.id === id){
+      todos: this.state.todos.map((todo) => {
+        if (todo.id === id) {
           todo.completed = !todo.completed
 
         }
@@ -42,27 +41,31 @@ export class App extends Component {
     })
 
   }
- //Delete Item.
- deleteMark =(id)=>{
-  this.setState({todos: [...this.state.todos.filter((todo)=>
-    todo.id !== id
-  
-  
-  )]})
+  //Delete  Todo
+  deleteMark = (id) => {
+    console.log('id___', id)
+    this.setState({
+      todos: [...this.state.todos.filter((todo) =>
+        todo.id !== id
 
- }
- 
+
+      )]
+    })
+
+  }
+
 
 
   render() {
-   // console.log("State",this.state.todos)
+    // console.log("State",this.state.todos)
     return (
       <div>
-        <Todos 
-        listItem ={this.state.todos} 
-        markComplete ={this.markComplete}
-        deleteId ={this.deleteMark}
-         />
+         <Header />
+        <Todos
+          listItem={this.state.todos}
+          markComplete={this.markComplete}
+          deleteId={this.deleteMark}
+        />
       </div>
     )
   }
