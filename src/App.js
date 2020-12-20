@@ -1,7 +1,9 @@
-import Header from './components/layout/Header'
-import './App.css'
-import Todos from './components/Todos'
-import AddTodo from './components/AddTodo'
+import Header from './components/layout/Header';
+import './App.css';
+import Todos from './components/Todos';
+import AddTodo from './components/AddTodo';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 import React, { Component } from 'react'
@@ -10,17 +12,17 @@ export class App extends Component {
   state = {
     todos: [
       {
-        id: 1,
+        id: uuidv4(),
         title: "take your time",
         completed: false
       },
       {
-        id: 2,
+        id: uuidv4(),
         title: "its dinner time",
         completed: false
       },
       {
-        id: 3,
+        id: uuidv4(),
         title: "lets meet for tommorow",
         completed: false
       }
@@ -54,6 +56,20 @@ export class App extends Component {
     })
 
   }
+  // add todo
+
+  addTodo =(title)=>{
+    //console.log(title)
+    const newTodo = {
+      id: uuidv4(),
+      title: title,
+      completed: false
+    }
+    this.setState({
+     todos: [...this.state.todos, newTodo]
+    })
+
+  }
 
 
 
@@ -63,7 +79,7 @@ export class App extends Component {
       <div>
         <div className="container">
         <Header />
-         <AddTodo />
+         <AddTodo addTodo={this.addTodo} />
         <Todos
           listItem={this.state.todos}
           markComplete={this.markComplete}
