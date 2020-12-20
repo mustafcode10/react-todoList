@@ -53,6 +53,7 @@ export class App extends Component {
   }
 
 
+
   // Toggle Complete
   markComplete = (id) => {
     console.log(id)
@@ -69,18 +70,34 @@ export class App extends Component {
     })
 
   }
-  //Delete  Todo
-  deleteMark = (id) => {
-    console.log('id___', id)
-    this.setState({
-      todos: [...this.state.todos.filter((todo) =>
-        todo.id !== id
 
+  // Delete http request
 
-      )]
-    })
+  deleteMark =(id)=>{
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    .then((res)=>this.setState({
+      todos: [...this.state.todos.filter((todo)=> todo.id !== id)
+
+      ]}))
 
   }
+
+
+
+
+
+  //Delete  Todo without http request
+  // deleteMark = (id) => {
+  //   console.log('id___', id)
+  //   this.setState({
+  //     todos: [...this.state.todos.filter((todo) =>
+  //       todo.id !== id
+
+
+  //     )]
+  //   })
+
+  // }
 
   // send POST
 
