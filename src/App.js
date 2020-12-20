@@ -3,6 +3,11 @@ import './App.css';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
 import { v4 as uuidv4 } from 'uuid';
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
+import About from './components/pages/About'
 
 
 
@@ -58,7 +63,7 @@ export class App extends Component {
   }
   // add todo
 
-  addTodo =(title)=>{
+  addTodo = (title) => {
     //console.log(title)
     const newTodo = {
       id: uuidv4(),
@@ -66,7 +71,7 @@ export class App extends Component {
       completed: false
     }
     this.setState({
-     todos: [...this.state.todos, newTodo]
+      todos: [...this.state.todos, newTodo]
     })
 
   }
@@ -76,19 +81,28 @@ export class App extends Component {
   render() {
     // console.log("State",this.state.todos)
     return (
-      <div>
-        <div className="container">
-        <Header />
-         <AddTodo addTodo={this.addTodo} />
-        <Todos
-          listItem={this.state.todos}
-          markComplete={this.markComplete}
-          deleteId={this.deleteMark}
-        />
-
+      <Router>
+        <div>
+          <div className="container">
+            <Header
+            />
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                <AddTodo addTodo={this.addTodo} />
+                <Todos
+                  listItem={this.state.todos}
+                  markComplete={this.markComplete}
+                  deleteId={this.deleteMark}
+                />
+              </React.Fragment>
+            )}
+            />
+            <Route
+              path='/about' component={About}
+            />
+          </div>
         </div>
-
-      </div>
+      </Router>
     )
   }
 }
