@@ -1,38 +1,58 @@
+import React, { Component } from 'react'
 import Header from './components/layout/Header';
 import './App.css';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
-import { v4 as uuidv4 } from 'uuid';
+//import { v4 as uuidv4 } from 'uuid';
 import {
   BrowserRouter as Router,
   Route,
 } from "react-router-dom";
 import About from './components/pages/About'
+import axios from 'axios'
 
 
 
-import React, { Component } from 'react'
+
 
 export class App extends Component {
   state = {
-    todos: [
-      {
-        id: uuidv4(),
-        title: "take your time",
-        completed: false
-      },
-      {
-        id: uuidv4(),
-        title: "its dinner time",
-        completed: false
-      },
-      {
-        id: uuidv4(),
-        title: "lets meet for tommorow",
-        completed: false
-      }
-    ]
+    todos: []
   }
+
+
+  // state = {
+  //   todos: [
+  //     {
+  //       id: uuidv4(),
+  //       title: "take your time",
+  //       completed: false
+  //     },
+  //     {
+  //       id: uuidv4(),
+  //       title: "its dinner time",
+  //       completed: false
+  //     },
+  //     {
+  //       id: uuidv4(),
+  //       title: "lets meet for tommorow",
+  //       completed: false
+  //     }
+  //   ]
+  // }
+
+  componentDidMount =()=>{
+    //axios.get('https://jsonplaceholder.typicode.com/todos')
+    // todos from jsonplaceholder are 200 item to limit to 10 item use ?_limit=10
+
+    //GET
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
+    //.then((res) => console.log(res))
+    .then((res)=> this.setState({todos: res.data}))
+
+  }
+
+
   // Toggle Complete
   markComplete = (id) => {
     console.log(id)
@@ -61,20 +81,39 @@ export class App extends Component {
     })
 
   }
-  // add todo
 
-  addTodo = (title) => {
-    //console.log(title)
-    const newTodo = {
-      id: uuidv4(),
-      title: title,
+  // send POST
+
+  addTodo =(title)=>{
+    axios.post('https://jsonplaceholder.typicode.com/todos',{
+      title:title,
       completed: false
-    }
-    this.setState({
-      todos: [...this.state.todos, newTodo]
     })
+    .then((res)=>this.setState({
+      todos: [...this.state.todos, res.data]
+
+    }))
 
   }
+
+  
+
+
+
+  // addTodo without send Post and request back
+
+  // addTodo = (title) => {
+  //   //console.log(title)
+  //   const newTodo = {
+  //     id: uuidv4(),
+  //     title: title,
+  //     completed: false
+  //   }
+  //   this.setState({
+  //     todos: [...this.state.todos, newTodo]
+  //   })
+
+  // }
 
 
 
