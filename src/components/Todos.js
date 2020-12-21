@@ -25,7 +25,11 @@ export class Todos extends Component {
 
 //PropTypes
 Todos.propTypes = {
-    listItem: PropTypes.array.isRequired
+    listItem: PropTypes.array.isRequired,
+    markComplete: PropTypes.func.isRequired,
+    deleteId: PropTypes.func.isRequired
+
+
 }
 
 export default Todos
