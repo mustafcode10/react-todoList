@@ -3,12 +3,14 @@ import Header from './components/layout/Header';
 import './App.css';
 import Todos from './components/Todos';
 import AddTodo from './components/AddTodo';
-//import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import {
   BrowserRouter as Router,
   Route,
 } from "react-router-dom";
 import About from './components/pages/About'
+import Contact from './components/pages/Contact'
+
 import axios from 'axios'
 
 
@@ -73,20 +75,19 @@ export class App extends Component {
 
   // Delete http request
 
-  deleteMark =(id)=>{
-    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-    .then((res)=>this.setState({
-      todos: [...this.state.todos.filter((todo)=> todo.id !== id)
-
-      ]}))
-
-  }
-
-
+  deleteMark =id => {
+    console.log('id', id)
+    axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`).then(res =>
+      this.setState({
+        todos: [...this.state.todos.filter(todo => todo.id !== id)]
+      })
+    );
+  };
 
 
 
-  //Delete  Todo without http request
+
+  // Delete  Todo without http request
   // deleteMark = (id) => {
   //   console.log('id___', id)
   //   this.setState({
@@ -156,9 +157,13 @@ export class App extends Component {
             <Route
               path='/about' component={About}
             />
+             <Route
+              path='/contact' component={Contact}
+            />
           </div>
         </div>
       </Router>
+   
     )
   }
 }
