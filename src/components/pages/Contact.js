@@ -21,7 +21,7 @@ class Contact extends Component {
                 
             
                 <button style={linkStyle}>
-                <a href="https://www.linkedin.com/in/mustaf-abtidon-135620179/"> Visit my LinkedIn </a> </button> And 
+                <a href="https://www.linkedin.com/in/mustaf-abtidon-135620179/"> Visit my LinkedIn </a> </button>And  And 
                 <button >
                 < a href="https://github.com/mustafcode10?tab=repositories"> My Github </a>
                 </button>
