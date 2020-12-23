@@ -13,13 +13,18 @@ class Contact extends Component {
                 <h3>Phone:  00962786707948</h3>
                 <h3>Email:  mustafdirie1@gmail.com</h3>
                 </div>
-
+                <div>
                 <img src={Mustaf} />
+
+                </div>
+
+                
             
-                <p style={linkStyle}>
-                <a href="https://www.linkedin.com/in/mustaf-abtidon-135620179/">Visit my LinkedIn</a> And
-                < a href="https://github.com/mustafcode10?tab=repositories"> My Github</a>
-                </p>
+                <button style={linkStyle}>
+                <a href="https://www.linkedin.com/in/mustaf-abtidon-135620179/"> Visit my LinkedIn </a> </button> And 
+                <button >
+                < a href="https://github.com/mustafcode10?tab=repositories"> My Github </a>
+                </button>
                 
             </React.Fragment>
          
@@ -40,11 +45,14 @@ const contacInfo = {
 const contactStyle = {
     color: 'blue',
     textAlign: 'left',
-    padding : '10px'
+    padding : '10px',
+  
 }
 const linkStyle = {
     textAlign: 'center',
-    color: 'white'
+    color: 'blue',
+    float: 'left',
+    fontColor: 'white'
 }
 
 export default Contact;
