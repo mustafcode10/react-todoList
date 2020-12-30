@@ -2,8 +2,10 @@ import React from 'react'
 function About(){
     return (
         <React.Fragment>
-            <h1>Welcome to TodoList</h1>
-            <p>This website is created by Mustaf  and using  your shopping list items</p>
+            <h1>Welcome to Mustaf Services</h1>
+            <p>Get the best services and high quality, if you want multiple user interfaces and <br/>
+            cross-platform applications like mobile apps both android and iOS.<br/>
+             And also, a building website and business services through the<strong> Mustaf Services. </strong></p>
 
         </React.Fragment>
         

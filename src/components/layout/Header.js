@@ -1,17 +1,28 @@
 import React from 'react'
 import {Link } from 'react-router-dom'
 import Logo from '../image/mustaf1.jpg'
+import {
+  BrowserRouter as Router,
+  Route,
+} from "react-router-dom";
 
 function Header(){
     return (
+      <React.Fragment>
        <header style={headerStyle}>
          <img src={Logo} style={logoStyle} />
          
-         <h1>TodoList</h1>
-         <Link style={linkStyle} to='/'> Home </Link> | 
-         <Link style={linkStyle} to='/about'> About </Link> |
+         <h1>Mustaf Services</h1>
+         <Link style={linkStyle} to='/'> Home </Link> * 
+         <Link style={linkStyle} to='/about'> About </Link> *
+         {/* <Link style={linkStyle} to='/film'> Movie </Link> * */}
          <Link style={linkStyle} to="/contact"> Contact </Link>
        </header>
+
+  
+      
+
+       </React.Fragment>
            
      
     )

@@ -11,7 +11,9 @@ import {
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 
+
 import axios from 'axios'
+
 
 
 
@@ -43,16 +45,13 @@ export class App extends Component {
   //   ]
   // }
 
-  componentDidMount =()=>{
-    //axios.get('https://jsonplaceholder.typicode.com/todos')
-    // todos from jsonplaceholder are 200 item to limit to 10 item use ?_limit=10
-
-    //GET
+  componentDidMount = ()=>{
     axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10')
-    //.then((res) => console.log(res))
-    .then((res)=> this.setState({todos: res.data}))
-
+    // .then(res=> console.log(res))
+    .then(res => this.setState({todos: res.data}))
   }
+
+
 
 
 
@@ -75,7 +74,7 @@ export class App extends Component {
 
   // Delete http request
 
-  deleteMark =id => {
+  deleteMark = id => {
     console.log('id', id)
     axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`).then(res =>
       this.setState({
@@ -102,19 +101,28 @@ export class App extends Component {
 
   // send POST
 
-  addTodo =(title)=>{
-    axios.post('https://jsonplaceholder.typicode.com/todos',{
-      title:title,
+  addTodo = (title) => {
+    axios.post('https://jsonplaceholder.typicode.com/todos', {
+      title: title,
       completed: false
     })
-    .then((res)=>this.setState({
-      todos: [...this.state.todos, res.data]
+      .then((res) => this.setState({
+        todos: [...this.state.todos, res.data]
 
-    }))
+      }))
 
   }
 
-  
+
+
+  // componentDidMount = () => {
+  //   const fetchItems = async () => {
+  //     const result = await axios(`https://breakingbadapi.com/api/characters/`)
+  //     console.log(result.data)
+  //   }
+  //   fetchItems()
+  //   // .then(res => this.setState(res.data))
+  // }
 
 
 
@@ -157,13 +165,15 @@ export class App extends Component {
             <Route
               path='/about' component={About}
             />
-             <Route
+            <Route
               path='/contact' component={Contact}
             />
           </div>
         </div>
       </Router>
-   
+
+
+
     )
   }
 }
